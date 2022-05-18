@@ -97,7 +97,7 @@ class _HeaderState extends State<Header> {
                     child: TextFormField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        labelText: "Que veux tu manger ?",
+                        labelText: "Que veux tu manger",
                         contentPadding: EdgeInsets.only(left: 20),
                         suffixIcon: Icon(Icons.search_rounded)
                       ),
