@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'header.dart';
+import 'categories.dart';
+import 'hambergerList.dart';
+import 'burgerPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        accentColor: Colors.orange,
+        canvasColor: Colors.teal,
+        primaryColor: Colors.teal,
+        cardColor: Colors.white,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.orange,
         ),
@@ -24,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: Hamberger(),
+      routes: {
+        BurgerPage.tag : (_)=>BurgerPage(),
+      },
     );
   }
 }
@@ -37,6 +47,7 @@ class _HambergerState extends State<Hamberger> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(240, 240, 240,1 ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -54,16 +65,9 @@ class _HambergerState extends State<Hamberger> {
             ],
           ),
           Header(),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Text(
-                  "HAMBERGER",
-                  style: TextStyle(fontSize: 300),
-                ),
-              ],
-            ),
-          ),
+          Categories(),
+         HambergerList(row :1),
+         HambergerList(row :2),
         ],
       ),
       extendBody: true,
